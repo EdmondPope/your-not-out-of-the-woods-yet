@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 350.0
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
 var hitbox_offset: Vector2
 var bodies_in_hitbox: Array[Node2D] = []
 var strength: int = 20
+var max_health: int = 100
+var health: int = 100
 
 
 @onready var hitbox: Area2D = $Hitbox
@@ -112,3 +114,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_hitbox_body_exited(body: Node2D) -> void:
 	bodies_in_hitbox.erase(body)
 	print("EXITED: ", body.name)
+
+
+
+func take_damage(amount: int) -> void:
+	health -= 10
+	print(health)

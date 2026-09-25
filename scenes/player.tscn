@@ -302,14 +302,15 @@ script = ExtResource("1_qlg0r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_dw050")
-animation = &"idle_right"
+animation = &"idle_down"
 
 [node name="swingsword" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_tuyoq")
 pitch_scale = 1.27
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(37, 0)
+position = Vector2(50, 0)
+scale = Vector2(1.2, 1.2)
 collision_mask = 2
 metadata/_edit_group_ = true
 
@@ -320,6 +321,9 @@ shape = SubResource("RectangleShape2D_tuyoq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_qlg0r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

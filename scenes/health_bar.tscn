@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b06f3naxdl1ew"]
+
+[ext_resource type="Script" uid="uid://cm5nj08823rtm" path="res://scripts/health_bar.gd" id="1_6opq1"]
+[ext_resource type="Texture2D" uid="uid://5itjj25u0it5" path="res://Assets/images/enemies/New Piskel (5).png" id="1_kdjhy"]
+[ext_resource type="Texture2D" uid="uid://disu3sc0u33lo" path="res://Assets/images/enemies/New Piskel (4).png" id="2_srckl"]
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource("1_6opq1")
+
+[node name="HealthUnder" type="Sprite2D" parent="."]
+texture = ExtResource("1_kdjhy")
+centered = false
+
+[node name="Health" type="Sprite2D" parent="."]
+texture = ExtResource("2_srckl")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 18, 4)
