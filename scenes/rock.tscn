@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cadiurevhyl08"]
+
+[ext_resource type="Script" uid="uid://btmo028q7ltsc" path="res://rock.gd" id="1_ik6fu"]
+[ext_resource type="Texture2D" uid="uid://l6p4vj27o7g0" path="res://Assets/items/objects.png" id="2_872ht"]
+[ext_resource type="Script" uid="uid://dknbw8e44s5k6" path="res://Inventory/InventoryItem.gd" id="2_p2d0s"]
+[ext_resource type="AudioStream" uid="uid://dviq6xorugp7l" path="res://Assets/audio/pickuphealth.wav" id="3_p2d0s"]
+
+[sub_resource type="Resource" id="Resource_vqvgd"]
+script = ExtResource("2_p2d0s")
+name = "rock"
+texture = ExtResource("2_872ht")
+metadata/_custom_type_script = "uid://dknbw8e44s5k6"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awyve"]
+size = Vector2(13, 12)
+
+[node name="Rock" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_ik6fu")
+itemRes = SubResource("Resource_vqvgd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_872ht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_awyve")
+
+[node name="CollectedSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p2d0s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

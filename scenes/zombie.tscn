@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bbcdfu2c6xbqi"]
+[gd_scene load_steps=44 format=3 uid="uid://bbcdfu2c6xbqi"]
 
 [ext_resource type="Script" uid="uid://cdybbadf1777j" path="res://scripts/zombie.gd" id="1_4gx57"]
 [ext_resource type="Texture2D" uid="uid://783dhqcsvt3i" path="res://Assets/images/enemies/ZombieSS.png" id="1_xepks"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cq51njfla3myc" path="res://Assets/images/enemies/Zombie_ss (2) (1).png" id="4_pjjxt"]
 [ext_resource type="AudioStream" uid="uid://bn6glhygth3f0" path="res://Assets/audio/hitHurt.wav" id="5_ycv6i"]
 [ext_resource type="PackedScene" uid="uid://b06f3naxdl1ew" path="res://scenes/health_bar.tscn" id="7_7pfmu"]
+[ext_resource type="AudioStream" uid="uid://6mmgi2tnpl6f" path="res://Assets/audio/arpmedia-horror-ambience-569511.mp3" id="8_3fthk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjjxt"]
 atlas = ExtResource("1_xepks")
@@ -278,8 +279,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xepks"]
-size = Vector2(10, 18)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fthk"]
+size = Vector2(13.5, 17.25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xepks"]
 radius = 179.0007
@@ -290,7 +291,7 @@ size = Vector2(13.5, 25.25)
 [node name="Zombie" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_4gx57")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -298,8 +299,7 @@ sprite_frames = SubResource("SpriteFrames_5dw3m")
 animation = &"attack_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_xepks")
+shape = SubResource("RectangleShape2D_3fthk")
 
 [node name="Sight" type="Area2D" parent="."]
 
@@ -320,6 +320,12 @@ position = Vector2(-9, -17.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-0.25, 0.375)
 shape = SubResource("RectangleShape2D_7pfmu")
+
+[node name="AmbientMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3fthk")
+volume_db = -10.0
+max_distance = 3000.0
+attenuation = 1.9999934
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]

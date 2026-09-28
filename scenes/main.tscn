@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs33kosqu4sdn"]
+
+[ext_resource type="Script" uid="uid://cd4ldy7hy62hk" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://dckpbblt5fqst" path="res://scripts/canvas_modulate.gd" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://copupf77tc8l" path="res://scenes/topdownworldgeneration.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://3m12qfwqh6t" path="res://scenes/hud.tscn" id="4_jyhfs"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sugp2")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.4, 0.4, 0.3764706, 1)
+script = ExtResource("2_jyhfs")
+
+[node name="HUD" parent="." instance=ExtResource("4_jyhfs")]
+process_mode = 3
+
+[node name="Topdownworldgeneration" parent="." instance=ExtResource("3_sugp2")]

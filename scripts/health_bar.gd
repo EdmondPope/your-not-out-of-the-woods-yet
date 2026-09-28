@@ -5,5 +5,8 @@ extends Node2D
 @onready var default_hight = health_bar.region_rect.size.y
 
 func update_health(new_health: int) -> void:
+	new_health = clamp(new_health, 0, 100)
+	
 	var new_width = (new_health / 100.0) * default_width
+	
 	health_bar.region_rect = Rect2(0, 0, new_width, default_hight)

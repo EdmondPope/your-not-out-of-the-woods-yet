@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://3m12qfwqh6t"]
+
+[ext_resource type="Script" uid="uid://d2qpa6tmra7ll" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://budkhqneayxd6" path="res://Assets/images/player/Heart_full.png" id="2_oo0fn"]
+[ext_resource type="PackedScene" uid="uid://cles33rvxw8cq" path="res://scenes/inventory_gui.tscn" id="3_5ysmq"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_ahhtf")
+
+[node name="Heart" type="HBoxContainer" parent="."]
+offset_right = 100.0
+offset_bottom = 16.0
+scale = Vector2(3, 3)
+
+[node name="Heart1" type="TextureRect" parent="Heart"]
+layout_mode = 2
+texture = ExtResource("2_oo0fn")
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="Heart"]
+layout_mode = 2
+texture = ExtResource("2_oo0fn")
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="Heart"]
+layout_mode = 2
+texture = ExtResource("2_oo0fn")
+stretch_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="Heart"]
+layout_mode = 2
+texture = ExtResource("2_oo0fn")
+stretch_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="Heart"]
+layout_mode = 2
+texture = ExtResource("2_oo0fn")
+stretch_mode = 2
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -65.0
+offset_top = -56.0
+offset_right = 1325.0
+offset_bottom = 833.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.6901961, 0.6901961, 0.627451, 1)
+
+[node name="InventoryGui" parent="." instance=ExtResource("3_5ysmq")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 213.0
+offset_top = 49.0
+offset_right = 421.5
+offset_bottom = 196.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[connection signal="closed" from="InventoryGui" to="." method="_on_inventory_gui_closed"]
+[connection signal="opened" from="InventoryGui" to="." method="_on_inventory_gui_opened"]

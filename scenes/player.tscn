@@ -1,10 +1,13 @@
-[gd_scene load_steps=42 format=3 uid="uid://b36vi3y7188uy"]
+[gd_scene load_steps=45 format=3 uid="uid://b36vi3y7188uy"]
 
 [ext_resource type="Script" uid="uid://2fnl1xa5fmfj" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://bldvho3b37ijb" path="res://Assets/images/player/New Piskel (2) (1).png" id="2_qlg0r"]
+[ext_resource type="Resource" uid="uid://d1ifqbbb0gh4a" path="res://Inventory/playerinventory.tres" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://c76ya8bugaqo5" path="res://Assets/images/player/New Piskel (3).png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://lbmqw0oj5mvv" path="res://Assets/images/player/PlayerSS.png" id="4_fjrip"]
+[ext_resource type="AudioStream" uid="uid://cnxhydoccu7uw" path="res://Assets/audio/hitHurt (1).wav" id="6_fjrip"]
 [ext_resource type="AudioStream" uid="uid://b4e600bjsvrp4" path="res://Assets/audio/click.wav" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://dgaylcf2fis4d" path="res://Assets/audio/freesound_community-footsteps-dirt-gravel-6823.mp3" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qlg0r")
@@ -297,12 +300,14 @@ size = Vector2(75, 76)
 size = Vector2(54, 52)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_qlg0r")
+inventory = ExtResource("2_smehm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_dw050")
-animation = &"idle_down"
+animation = &"die"
 
 [node name="swingsword" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_tuyoq")
@@ -324,6 +329,18 @@ shape = SubResource("RectangleShape2D_qlg0r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
+
+[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fjrip")
+
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fjrip")
+pitch_scale = 2.0
+parameters/looping = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
