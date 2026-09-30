@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://tua8sxjnq53k"]
 
-[ext_resource type="Script" uid="uid://dn3on7ntxe6r4" path="res://scenes/hotbar.gd" id="1_4qkdb"]
+[ext_resource type="Script" uid="uid://dn3on7ntxe6r4" path="res://Inventory/hotbar.gd" id="1_4qkdb"]
 [ext_resource type="PackedScene" uid="uid://cm2lkrseihlac" path="res://scenes/hotbar_slot.tscn" id="2_xrqkv"]
 
 [node name="Hotbar" type="Node2D"]
