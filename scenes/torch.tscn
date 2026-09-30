@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwsmu0n22armd"]
+
+[sub_resource type="Gradient" id="Gradient_smehm"]
+offsets = PackedFloat32Array(0, 0.65983605)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ur7pv"]
+gradient = SubResource("Gradient_smehm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="Torch" type="PointLight2D"]
+scale = Vector2(20, 20)
+energy = 0.79
+texture = SubResource("GradientTexture2D_ur7pv")

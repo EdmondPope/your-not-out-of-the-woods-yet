@@ -1,6 +1,6 @@
 extends CanvasModulate
 
-@export var day_length := 600.0 
+@export var day_length := 10.0 
 @export var start_time := 0.25
 
 var time := start_time

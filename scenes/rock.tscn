@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cadiurevhyl08"]
 
-[ext_resource type="Script" uid="uid://btmo028q7ltsc" path="res://rock.gd" id="1_ik6fu"]
+[ext_resource type="Script" uid="uid://btmo028q7ltsc" path="res://Inventory/rock.gd" id="1_ik6fu"]
 [ext_resource type="Texture2D" uid="uid://l6p4vj27o7g0" path="res://Assets/items/objects.png" id="2_872ht"]
 [ext_resource type="Script" uid="uid://dknbw8e44s5k6" path="res://Inventory/InventoryItem.gd" id="2_p2d0s"]
 [ext_resource type="AudioStream" uid="uid://dviq6xorugp7l" path="res://Assets/audio/pickuphealth.wav" id="3_p2d0s"]

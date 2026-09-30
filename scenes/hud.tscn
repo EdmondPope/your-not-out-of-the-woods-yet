@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://3m12qfwqh6t"]
+[gd_scene load_steps=5 format=3 uid="uid://3m12qfwqh6t"]
 
 [ext_resource type="Script" uid="uid://d2qpa6tmra7ll" path="res://scripts/hud.gd" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://budkhqneayxd6" path="res://Assets/images/player/Heart_full.png" id="2_oo0fn"]
 [ext_resource type="PackedScene" uid="uid://cles33rvxw8cq" path="res://scenes/inventory_gui.tscn" id="3_5ysmq"]
+[ext_resource type="PackedScene" uid="uid://tua8sxjnq53k" path="res://scenes/hotbar.tscn" id="4_6fi6k"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ahhtf")
@@ -62,6 +63,9 @@ grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="Hotbar" parent="." instance=ExtResource("4_6fi6k")]
+position = Vector2(375.99997, 607.99994)
 
 [connection signal="closed" from="InventoryGui" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="InventoryGui" to="." method="_on_inventory_gui_opened"]
