@@ -1,25 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://tua8sxjnq53k"]
+[gd_scene load_steps=3 format=3 uid="uid://tua8sxjnq53k"]
 
-[ext_resource type="PackedScene" uid="uid://cm2lkrseihlac" path="res://scenes/hotbar_slot.tscn" id="1_mjyg7"]
+[ext_resource type="Script" uid="uid://dn3on7ntxe6r4" path="res://scenes/hotbar.gd" id="1_4qkdb"]
+[ext_resource type="PackedScene" uid="uid://cm2lkrseihlac" path="res://scenes/hotbar_slot.tscn" id="2_xrqkv"]
 
 [node name="Hotbar" type="Node2D"]
 scale = Vector2(5, 5)
 
-[node name="Array" type="HBoxContainer" parent="."]
+[node name="hotbar" type="HBoxContainer" parent="."]
 offset_right = 116.0
 offset_bottom = 20.0
+script = ExtResource("1_4qkdb")
 
-[node name="HotbarSlot" parent="Array" instance=ExtResource("1_mjyg7")]
+[node name="HotbarSlot" parent="hotbar" instance=ExtResource("2_xrqkv")]
 layout_mode = 2
 
-[node name="HotbarSlot2" parent="Array" instance=ExtResource("1_mjyg7")]
+[node name="HotbarSlot2" parent="hotbar" instance=ExtResource("2_xrqkv")]
 layout_mode = 2
 
-[node name="HotbarSlot3" parent="Array" instance=ExtResource("1_mjyg7")]
+[node name="HotbarSlot3" parent="hotbar" instance=ExtResource("2_xrqkv")]
 layout_mode = 2
 
-[node name="HotbarSlot4" parent="Array" instance=ExtResource("1_mjyg7")]
+[node name="HotbarSlot4" parent="hotbar" instance=ExtResource("2_xrqkv")]
 layout_mode = 2
 
-[node name="HotbarSlot5" parent="Array" instance=ExtResource("1_mjyg7")]
+[node name="HotbarSlot5" parent="hotbar" instance=ExtResource("2_xrqkv")]
 layout_mode = 2
