@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://b0qdnoxgecgwd" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="7_obxlt"]
 [ext_resource type="Texture2D" uid="uid://cs6ppw6p1sexs" path="res://Assets/images/tileset/ArtForTOPDOWN-GaeaTutorial.png" id="8_r7opc"]
 [ext_resource type="PackedScene" uid="uid://b36vi3y7188uy" path="res://scenes/player.tscn" id="9_o5loj"]
-[ext_resource type="PackedScene" uid="uid://bbcdfu2c6xbqi" path="res://scenes/zombie.tscn" id="10_kn4wv"]
 [ext_resource type="Texture2D" uid="uid://chrhyagdxg3ot" path="res://Assets/images/tileset/Oak_Tree.png" id="10_mxfr1"]
 [ext_resource type="Texture2D" uid="uid://dr04prcey3rr" path="res://Assets/images/tileset/objects.png" id="11_kknyb"]
 [ext_resource type="Script" uid="uid://drurl8p4m1ftn" path="res://scenes/decoration_random.gd" id="12_obxlt"]
+[ext_resource type="Script" uid="uid://cm1pyp4hftd7c" path="res://scenes/zombie_spawner.gd" id="13_kknyb"]
 
 [sub_resource type="Image" id="Image_r7opc"]
 data = {
@@ -167,5 +167,5 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_6e51v")
 script = ExtResource("12_obxlt")
 
-[node name="Zombie" parent="." instance=ExtResource("10_kn4wv")]
-position = Vector2(2303, 1030)
+[node name="ZombieSpawner" type="Node2D" parent="."]
+script = ExtResource("13_kknyb")

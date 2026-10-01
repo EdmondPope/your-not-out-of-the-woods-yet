@@ -1,6 +1,6 @@
 extends CanvasModulate
 
-@export var day_length := 500.0 
+@export var day_length := 20.0 
 @export var start_time := 0.25
 
 var time := start_time
@@ -31,7 +31,9 @@ func get_day_color(t: float) -> Color:
 		return day
 	elif t < 0.80:
 		var amount := smoothstep(0.65, 0.80, t)
+		$ZombieSpawner.start_night()
 		return day.lerp(dusk, amount)
 	else:
 		var amount := smoothstep(0.80, 1.0, t)
+		$ZombieSpawner.start_day()
 		return dusk.lerp(night, amount)
