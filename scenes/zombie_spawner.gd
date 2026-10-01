@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var zombie_scene: PackedScene
+@onready var zombie_scene: PackedScene = preload("res://scenes/zombie.tscn")
 
 @export var grass_atlas_cords := Vector2i(1, 0)
 
 @export var zombies_per_spawn := 1
-@export var spawn_interval := 5.0
+@export var spawn_interval := 1.0
 @export var max_zombies := 10
 
 @onready var ground_layer: TileMapLayer = $"../TileMapLayer"
@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 		spawn_timer = spawn_interval
 
 func spawn_zombies() -> void:
+	print("trying to spawn zombies")
 	var current_zombies := get_tree().get_nodes_in_group("zombies").size()
 	
 	if current_zombies >= max_zombies:
@@ -50,11 +51,11 @@ func spawn_zombies() -> void:
 		if ground_layer.get_cell_source_id(cell) == -1:
 			continue
 		
-		var atlas_coords: Vector2i = ground_layer.get_child_atlas_coords(cell)
+		var atlas_coords: Vector2i = ground_layer.get_cell_atlas_coords(cell)
 		
 		if atlas_coords != grass_atlas_cords:
 			continue
-		
+		print("found grass at: ", cell)
 		var zombie = zombie_scene.instantiate()
 		
 		add_child(zombie)
@@ -66,9 +67,11 @@ func spawn_zombies() -> void:
 
 func start_night() -> void:
 	is_night = true
+	print("Night Started")
 
 func start_day() -> void:
 	is_night = false
+	print("day started")
 	kill_all_zombies()
 	
 

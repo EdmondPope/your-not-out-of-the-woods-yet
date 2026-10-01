@@ -3,6 +3,8 @@ extends Panel
 @onready var inventory: Inventory = preload("res://Inventory/playerinventory.tres")
 @onready var slots: Array = $container.get_children()
 @onready var selector: Sprite2D = $Selector
+@onready var hud = $"../.."
+
 
 
 var currently_selected: int = 0
@@ -29,6 +31,10 @@ func move_selector() -> void:
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("use"):
 		inventory.use_item_at_index(currently_selected)
+		playerstats.health += 20
+		playerstats.health = min(playerstats.health, playerstats.max_health)
+		print("health after: ", playerstats.health)
+		hud._update_health(playerstats.health)
 		
 	if event.is_action_pressed("move_selector"):
 		move_selector()
