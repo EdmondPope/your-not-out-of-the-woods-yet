@@ -301,6 +301,7 @@ size = Vector2(54, 52)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_qlg0r")
 inventory = ExtResource("2_smehm")
 
@@ -328,7 +329,7 @@ position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_qlg0r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+y_sort_enabled = true
 
 [node name="PlayerHurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_fjrip")

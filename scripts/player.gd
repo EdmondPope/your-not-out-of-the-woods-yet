@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal died
 signal health_changed(new_health: int)
 
-const SPEED = 350.0
+const SPEED = 200.0
 var last_direction: Vector2 = Vector2.RIGHT
 var is_attacking: bool = false
 var hitbox_offset: Vector2
