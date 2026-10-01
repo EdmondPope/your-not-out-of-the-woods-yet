@@ -21,6 +21,8 @@ var alive: bool = true
 @onready var player_hurt: AudioStreamPlayer2D = $PlayerHurt
 @onready var damage_cooldown: Timer = $DamageCooldown
 @onready var footsteps: AudioStreamPlayer2D = $footsteps
+@onready var decoration_layer: TileMapLayer = $"../decorationLayer"
+
 
 @export var inventory: Inventory
 
@@ -100,6 +102,14 @@ func attack() -> void:
 		if body.name.begins_with("Zombie"):
 			body.take_damage(strength, position)
 			print("HIT: ", body.name)
+	var attack_position := decoration_layer.to_local(hitbox.global_position)
+	var attack_cell := decoration_layer.local_to_map(attack_position)
+	
+	for x in range(-1, 2):
+		for y in range(-1, 2):
+			var cell := attack_cell + Vector2i(x, y)
+			if decoration_layer.break_decoration_at(cell):
+				return
 	
 
 

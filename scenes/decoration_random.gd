@@ -55,6 +55,21 @@ func spawn_decorations() -> void:
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func break_decoration_at(cell: Vector2i) -> bool:
+	var source_id := get_cell_source_id(cell)
+	
+	if source_id == -1:
+		return false
+	
+	var atlas_coords: Vector2i = get_cell_atlas_coords(cell)
+	
+	if source_id == tree_source_id and atlas_coords == tree_atlas_cords:
+		erase_cell(cell)
+		return true
+	
+	if source_id == rock_source_id and atlas_coords == rock_atlas_cords:
+		erase_cell(cell)
+		return true
+	
+	
+	return false

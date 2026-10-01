@@ -9,7 +9,7 @@
 size = Vector2(13, 12)
 
 [node name="HealthPickup" type="Area2D"]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 script = ExtResource("1_3p6mu")
 itemRes = ExtResource("2_ubx2t")
 
