@@ -60,10 +60,10 @@ func _update_health(new_health: int) -> void:
 		var heart_start := i * HEART_SIZE
 		
 		if new_health >= heart_start + HEART_SIZE:
-			hearts[1].texture = HEART_FULL
+			hearts[i].texture = HEART_FULL
 			print("heart", i + 1, ": FULL")
 		
-		elif new_health > heart_start:
+		elif new_health >= heart_start + (HEART_SIZE / 2):
 			hearts[i].texture = HEART_HALF
 			print("heart", i + 1, ": HALF")
 		

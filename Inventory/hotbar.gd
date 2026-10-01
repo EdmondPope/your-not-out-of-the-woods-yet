@@ -4,7 +4,7 @@ extends Panel
 @onready var slots: Array = $container.get_children()
 @onready var selector: Sprite2D = $Selector
 @onready var hud = $"../.."
-
+@onready var player = get_tree().current_scene.get_node("Topdownworldgeneration/Player")
 
 
 var currently_selected: int = 0
@@ -29,10 +29,20 @@ func move_selector() -> void:
 
 
 func _unhandled_input(event) -> void:
+	var slot = inventory.slots[currently_selected]
+	
 	if event.is_action_pressed("use"):
+		if slot.item == null:
+			return
+		
+		if playerstats.health == playerstats.max_health:
+			return
+			
+		if slot.item.name != "heart":
+			return
 		inventory.use_item_at_index(currently_selected)
-		playerstats.health += 20
-		playerstats.health = min(playerstats.health, playerstats.max_health)
+		player.heal(10)
+		
 		print("health after: ", playerstats.health)
 		hud._update_health(playerstats.health)
 		
